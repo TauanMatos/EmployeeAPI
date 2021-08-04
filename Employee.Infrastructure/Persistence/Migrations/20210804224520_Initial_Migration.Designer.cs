@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Employee.Infrastructure.Migrations
+namespace Infrastructure.Migrations
 {
     [DbContext(typeof(EmployeeDbContext))]
     [Migration("20210804224520_Initial_Migration")]

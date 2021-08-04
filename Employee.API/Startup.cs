@@ -4,9 +4,9 @@ using API.Extensions;
 using Infrastructure.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace API
 {
@@ -34,7 +34,7 @@ namespace API
         {
             app.UseGlobalExceptionHandler();
             app.UseHttpsRedirection();
-
+            app.UseSimulatedLatency(min: TimeSpan.FromMilliseconds(100), max: TimeSpan.FromMilliseconds(500));
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {

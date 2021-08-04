@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using System;
 using System.Net;
 
 namespace API.Extensions
@@ -10,6 +11,9 @@ namespace API.Extensions
     {
         public static void UseGlobalExceptionHandler(this IApplicationBuilder app)
         {
+            if (app == null)
+                throw new ArgumentNullException(nameof(app));
+
             app.UseExceptionHandler(builder =>
             {
                 builder.Run(async context =>
